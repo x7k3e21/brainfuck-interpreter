@@ -8,9 +8,7 @@
 using std::istream;
 using std::ostream;
 
-int32_t main(int32_t argc, char* argv[])
+int32_t main(int32_t argc, char *argv[])
 {
-    std::cout << "You passed " << argc << " arguments" << std::endl;
-
     return EXIT_SUCCESS;
 }
