@@ -1,10 +1,5 @@
 
-#ifndef OPTIONS_PARSER_H
-#define OPTIONS_PARSER_H
-
-namespace bf
-{
-    
-}
+#ifndef BFI_OPTIONS_PARSER_H
+#define BFI_OPTIONS_PARSER_H
 
 #endif
