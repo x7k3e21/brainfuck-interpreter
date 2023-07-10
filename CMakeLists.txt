@@ -27,5 +27,5 @@ file(GLOB_RECURSE BFI_SOURCE_FILES
 add_executable(${BFI_EXECUTABLE_NAME}
     ${BFI_INCLUDE_FILES} ${BFI_SOURCE_FILES})
 
-target_include_directories(${BFI_EXECUTABLE_NAME}
+target_include_directories(${BFI_EXECUTABLE_NAME} PUBLIC
     ${BFI_INCLUDE_DIRECTORIES})

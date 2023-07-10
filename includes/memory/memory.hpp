@@ -17,18 +17,22 @@ namespace bf
     {
         public:
 
-        Memory();
+        Memory() : memory_(), iterator_(memory_.begin()) { };
+
         virtual ~Memory() = default;
 
-        inline void IncrementValue(T offset);
-        inline void DecrementValue(T offset);
+        inline void IncrementValue(T offset) { *this->iterator_ += offset; };
+        inline void DecrementValue(T offset) { *this->iterator_ -= offset; };
 
-        inline void MoveForward(ssize_t offset);
-        inline void MoveBackward(ssize_t offset);
+        inline void MoveForward(ssize_t offset) { this->iterator_ += offset; };
+        inline void MoveBackward(ssize_t offset) { this->iterator_ -= offset; };
+
+        inline T ReadValue() const { return *this->iterator_; }
 
         private:
 
         std::array<T, n> memory_;
+        typename decltype(memory_)::iterator iterator_; 
     };
 }
 
