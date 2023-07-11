@@ -1,7 +1,7 @@
 
 /*!
     \file
-    \brief
+    \brief This file contains implementation of the Memory class
  */
 
 #ifndef BFI_MEMORY_MEMORY_H
@@ -10,15 +10,13 @@
 #include <stddef.h>
 #include <stdint.h>
 
-#include <sys/types.h>
-
 #include <array>
 using std::array;
 
 namespace bf
 {
     /*!
-        \brief
+        \brief This class handles all memory interactions
      */
     template <typename T=uint32_t, size_t n=30000>
     class Memory
@@ -44,18 +42,24 @@ namespace bf
             Moves the cell pointer to the right in the array
             \param[in] offset The number to shift the cell pointer
          */
-        inline void MoveForward(ssize_t offset) { this->iterator_ += offset; };
+        inline void MoveForward(size_t offset) { this->iterator_ += offset; };
         /*!
             Moves the cell pointer to the left in the array
             \param[in] offset The number to shift the cell pointer
          */
-        inline void MoveBackward(ssize_t offset) { this->iterator_ -= offset; };
+        inline void MoveBackward(size_t offset) { this->iterator_ -= offset; };
 
         /*!
             Reads the value from the current active cell
             \returns The value stored in the cell pointed by the iterator
          */
         inline T ReadValue() const { return *this->iterator_; }
+
+        /*!
+            Writes provided value to the cell pointed by the iterator
+            \param[in] value The number that will be written to the active cell
+         */
+        inline void WriteValue(T value) { *this->iterator_ = value; }
 
         private:
 
